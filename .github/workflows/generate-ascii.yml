@@ -1,0 +1,18 @@
+name: Generate ASCII 
+
+on: push 
+
+jobs: 
+    ascii: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+
+            - name: Executing shell scripts
+              run: ./ascii-script.sh
+
+            - name: List all files
+              run: ls -ltr 
+
+
