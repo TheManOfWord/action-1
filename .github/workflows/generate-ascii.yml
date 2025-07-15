@@ -12,7 +12,7 @@ jobs:
             - name: Executing shell scripts
               run: |
                 chmod +x ascii-script.sh
-                ./ascii-script.sh
+                .github/workflows/ascii-script.sh
 
             - name: List all files
               run: ls -ltr 
