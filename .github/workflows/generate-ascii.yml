@@ -2,19 +2,18 @@ name: Generate ASCII
 
 on: push 
 
-jobs: 
-    ascii: 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repo
-              uses: actions/checkout@v3
+jobs:
+  run-ascii:
+    runs-on: ubuntu-latest
 
-            - name: Executing shell scripts
-              run: |
-                chmod +x ascii-script.sh
-                .scripts/ascii-script.sh
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: List all files
-              run: ls -ltr 
+      - name: Make script executable
+        run: chmod +x scripts/ascii-script.sh
+
+      - name: Run script
+        run: ./scripts/ascii-script.sh
 
 
