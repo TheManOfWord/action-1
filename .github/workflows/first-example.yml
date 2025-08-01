@@ -1,19 +1,14 @@
-name: My first workflow
+name: Example Workflow
 
-on: push 
+env:
+  GLOBAL_ENV: "applies_to_all_jobs"
 
 jobs: 
-    first_job:
-        runs-on: ubuntu-latest
-        steps:
-           - name: Checkout repo
-             uses: actions/checkout@v4
+  build: 
+    runs-on: ubuntu-latest
+    env:
+      JOB_ENV: "applies_to_this_job"
 
-           - name: Pipe
-             run: |
-              echo "My message"
-              ls -ls
-              
-
-           #- name: List all files
-            # run: ls
+    steps:
+      - name: Print variables
+        run: echo "$GLOBAL_ENV $JOB_ENV"
